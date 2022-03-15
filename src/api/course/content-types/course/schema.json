@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "training_videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::training-video.training-video",
+      "mappedBy": "course"
+    },
+    "specialty": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::speciality.speciality",
+      "inversedBy": "courses"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
